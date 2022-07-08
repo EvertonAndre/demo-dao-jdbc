@@ -1,6 +1,7 @@
 package application;
 
-import model.entities.Department;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Seller;
 
 import java.text.SimpleDateFormat;
@@ -10,10 +11,10 @@ public class Program {
 
     public static void main(String[] args){
 
-        Department obj = new Department(1,"Books");
-        System.out.println(obj);
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        Seller obj2= new Seller(2,"Joao","gfjgf@gmail",new Date(),600.00, obj);
-        System.out.println(obj2);
+        Seller seller = sellerDao.findById(3);
+
+        System.out.println(seller);
     }
 }
